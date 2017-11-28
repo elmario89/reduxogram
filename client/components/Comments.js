@@ -4,6 +4,7 @@ class Comments extends Component {
     constructor() {
         super();
         this.addComment = this.addComment.bind(this);
+        this.renderComment = this.renderComment.bind(this);
     }
 
     renderComment(comment, i) {
@@ -12,7 +13,7 @@ class Comments extends Component {
                 <p>
                     <strong>{comment.user}</strong>
                     {comment.text}
-                    <button className='remove-comment'>&times;</button>
+                    <button onClick={this.props.removeComment.bind(null, this.props.postId, i)} className='remove-comment'>&times;</button>
                 </p>
             </div>
         )
@@ -26,6 +27,8 @@ class Comments extends Component {
         const author = this.refs.author.value
 
         this.props.addComment(postId, author, comment);
+
+        this.refs.commentForm.reset();
     }
 
     render() {

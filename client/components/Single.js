@@ -21,6 +21,7 @@ const Single = React.createClass({
                     comments={comments}
                     postId={postId}
                     addComment={this.props.addComment}
+                    removeComment={this.props.removeComment}
                 />
             </div>
         )
